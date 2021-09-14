@@ -14,21 +14,21 @@ const fifaData2014 = fifaData.filter( function(item){ return item.Year === 2014;
 // stages.sort();
 // console.log(stages);
 const finalGame2014 = fifaData2014.filter( x => {return x.Stage === 'Final';} ); // returned as an array w. 1 element, an object
-console.log('\n----------------');
-console.log('HOME TEAM: ', finalGame2014[0]['Home Team Name']);
+// console.log('\n----------------');
+// console.log('HOME TEAM: ', finalGame2014[0]['Home Team Name']);
 
 
 //(b) Away Team name for 2014 world cup final
-console.log('AWAY TEAM: ', finalGame2014[0]['Away Team Name']);
+// console.log('AWAY TEAM: ', finalGame2014[0]['Away Team Name']);
 
 //(c) Home Team goals for 2014 world cup final
-console.log('HOME TEAM GOALS: ', finalGame2014[0]['Home Team Goals']);
+// console.log('HOME TEAM GOALS: ', finalGame2014[0]['Home Team Goals']);
 
 //(d) Away Team goals for 2014 world cup final
-console.log('AWAY TEAM GOALS: ', finalGame2014[0]['Away Team Goals']);
+// console.log('AWAY TEAM GOALS: ', finalGame2014[0]['Away Team Goals']);
 
 //(e) Winner of 2014 world cup final */
-console.log('WINNER: ', finalGame2014[0]['Win conditions']);
+// console.log('WINNER: ', finalGame2014[0]['Win conditions']);
 
 
 
@@ -40,10 +40,12 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(arr) {
+   return arr.filter( x => {return x.Stage === 'Final'} );
 }
-
+// console.log('\n----------------');
+// console.log(getFinals(fifaData));
+// console.log(getFinals(fifaData).length);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -52,9 +54,12 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(arr, callback) {
+    let allFinals = callback(arr);
+    let allYears = allFinals.map( x => {return x.Year});
+    return allYears;
 }
+// console.log(getYears(fifaData,getFinals));
 
 
 
